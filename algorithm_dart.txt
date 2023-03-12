@@ -1,0 +1,41 @@
+  List<int> numbers = [];
+void main() {
+  listNumber(1, 2, 3, 4, 5);
+  
+  int min = numbers[0];
+  int max = numbers[0];
+  numbers.forEach((number) {
+    min = min < number ? min : min = number; 
+    max = max > number ? max : max = number;
+  });
+ 
+  int minSum = 0;
+  numbers.forEach((number) {
+    minSum = number != max ? minSum += number : minSum;
+  });
+   
+  int maxSum = 0;
+  numbers.forEach((number) {
+    maxSum = number != min ? maxSum += number : maxSum;
+  });
+  
+  print('Tổng 4 số nhỏ nhất: $minSum');
+  print('Tổng 4 số lớn nhất: $maxSum');
+  
+  //Tìm phần tử chẵn lẻ trong mảng
+  String evenElements = 'Các số chẵn trong mảng là:';
+  String oddElements = 'Các số lẻ trong mảng là:';
+  numbers.forEach((number) {
+    if (number % 2 == 0) {
+      evenElements += ' $number';
+    } else {
+      oddElements += ' $number';
+    }
+  });
+  print(evenElements);
+  print(oddElements);
+}
+
+  void listNumber(int a, int b, int c, int d, int e) {
+    numbers.addAll([a, b, c, d, e]);
+  }
